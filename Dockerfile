@@ -8,6 +8,8 @@ RUN pip install impyla && pip install pyhive
 ENV APACHE_SPARK_VERSION 2.0.2
 ENV HADOOP_VERSION 2.7
 
+USER root
+
 # Temporarily add jessie backports to get openjdk 8, but then remove that source
 RUN echo 'deb http://cdn-fastly.deb.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list && \
     apt-get -y update && \

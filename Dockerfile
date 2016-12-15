@@ -1,7 +1,7 @@
 FROM jupyterhub/singleuser
 MAINTAINER Radoslaw <radoslaw@zagwozdka.com>
 
-RUN pip install impyla && pip install pyhive && pip install sasl
+RUN pip install impyla && pip install pyhive
 
 
 # Spark dependencies
@@ -35,6 +35,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN pip install git+https://github.com/laserson/python-sasl.git@cython
 # Spark and Mesos config
 ENV SPARK_HOME /usr/local/spark
 ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.3-src.zip

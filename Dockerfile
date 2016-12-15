@@ -35,7 +35,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN apt-get -y update && apt-get  install  -y libsasl2-dev python-dev libldap2-dev libssl-dev
-RUN pip install git+https://github.com/laserson/python-sasl.git@cython
+RUN pip install git+https://github.com/laserson/python-sasl.git@cython && pip install thrift_sasl
 # Spark and Mesos config
 ENV SPARK_HOME /usr/local/spark
 ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.3-src.zip

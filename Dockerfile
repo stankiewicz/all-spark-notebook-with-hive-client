@@ -1,7 +1,7 @@
 FROM jupyterhub/singleuser
 MAINTAINER Radoslaw <radoslaw@zagwozdka.com>
 
-RUN pip install impyla && pip install pyhive
+RUN pip install impyla && pip install pyhive && pip install sasl
 
 
 # Spark dependencies
